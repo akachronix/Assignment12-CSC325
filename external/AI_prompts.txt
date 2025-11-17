@@ -127,3 +127,88 @@ Do you want me to proceed and replace that file now? If yes, I'll overwrite it a
 
 Reflection: AI doubled the response, basically the same thing twice so I had to remove that. I also adjusted the parser and removed additional boilerplate 
 code that was unnecessary bloat for our purposes
+
+
+
+Prompt 4: Create a database using JDBC to serialize OpenMeteoResponse into a sqlite database storing the time, temperature, and air pressure
+
+
+
+Response: 
+Optimizing tool selection...
+
+I'll create a plan, add SQLite JDBC dependency to pom.xml, create a WeatherDatabase class to handle JDBC operations, and update Weather.java to serialize data.
+
+Added 2 todos
+
+Adding SQLite JDBC dependency to pom.xml.
+
+Read pom.xml
+
+pom.xml+6-0
+Starting: Create WeatherDatabase class (2/4)
+
+Now I'll create the WeatherDatabase class with JDBC operations.
+
+Created WeatherDatabase.java
+
+Starting: Update Weather.java (3/4)
+
+Now I'll update Weather.java to use the database to serialize the response.
+
+Read Weather.java
+
+Weather.java+13-0
+Starting: Verify build and run (4/4)
+
+Now I'll compile and run the application to verify it works.
+
+
+mvn -q clean compile exec:java
+No output was produced by the command.
+The OpenMeteoResponse.getHourly() method takes a timePoint parameter, but I need to get all hourly data. Let me check the API and fix WeatherDatabase.java.
+
+Read OpenMeteoResponse.java
+
+I'll add a getHourly() method (no parameters) to OpenMeteoResponse that returns all hourly data, then fix WeatherDatabase.java.
+
+OpenMeteoResponse.java+4-0
+
+mvn -q clean compile exec:java
+Perfect! The application compiled and ran successfully. Let me verify the database file was created.
+
+
+ls -lh /home/chronix/Desktop/asgmt12-csc325/weather_data.db
+Completed: Verify build and run (4/4)
+
+Done! I've successfully created a SQLite database integration using JDBC. Here's what was implemented:
+
+Changes made:
+
+pom.xml — Added SQLite JDBC dependency (org.xerial:sqlite-jdbc:3.44.0.0)
+
+WeatherDatabase.java — New JDBC class with methods:
+
+initDatabase() — Creates the weather table if it doesn't exist
+insertWeatherData() — Batch inserts all hourly weather records (time, temperature, air pressure)
+printAllWeatherData() — Queries and displays all records from the database
+clearWeatherData() — Utility to clear records
+Weather.java — Updated to call the database after API response parsing:
+
+Initializes database
+Inserts 168 weather records
+Prints all weather data from the database
+OpenMeteoResponse.java — Added a getHourly() method (no parameters) to return all hourly data
+
+Result: The application ran successfully, inserting 168 weather records into weather_data.db (24KB file created). The database stores time, temperature (in °F), and air pressure (in hPa) for each hourly forecast point.
+
+You can run it anytime with:
+
+
+mvn clean compile exec:java
+
+
+
+Reflection:
+AI was also very very handy here and saved a lot of time. Looking through the database, it is serialized correctly and laid out correctly.
+The code is also very succinct, and with some boilerplate removals seems perfectly servicable.

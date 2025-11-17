@@ -58,9 +58,13 @@ public class OpenMeteoResponse {
         return sb.toString();
     }
 
+    public WeatherData[] getHourly() {
+        return hourly;
+    }
+
     public WeatherData[] getHourly(String timePoint) {
         return Arrays.stream(hourly)
-              .filter(pair -> pair.time.equals(timePoint))
+              .filter(data -> data.time.equals(timePoint))
               .toArray(WeatherData[]::new);
     }
 

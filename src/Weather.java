@@ -18,7 +18,7 @@ public class Weather {
 			}
 		}
 
-		String urlStr = String.format(
+		final String urlStr = String.format(
 			"https://api.open-meteo.com/v1/forecast?latitude=%s&longitude=%s&hourly=temperature_2m,surface_pressure&temperature_unit=fahrenheit",
 			lat, lon);
 
@@ -47,5 +47,18 @@ public class Weather {
 		OpenMeteoResponse weather = new OpenMeteoResponse(resp.toString());
 		System.out.println("Time Points:\n" + weather.getTimePoints());
 		System.out.println("Weather Data:\n" + weather);
+
+		// Serialize to SQLite database
+		try {
+			String dbFilePath = "weather_data.db";
+			WeatherDatabase db = new WeatherDatabase(dbFilePath);
+			db.initDatabase();
+			db.insertWeatherData(weather);
+			db.printAllWeatherData();
+			System.out.println("\nDatabase saved to: " + dbFilePath);
+		} catch (Exception e) {
+			System.out.println("Database error: " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 }
