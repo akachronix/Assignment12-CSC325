@@ -1,18 +1,19 @@
+# Supe
+A text adventure game set in a supermarket based on simulation and discovery of certain items
 
-# Assignment 12: API and Database Integration Tool
-- Level 1 (completed)
-- How to run: ```mvn clean compile exec:java```
+### Description
+You are Charlie Dotter, a new employee at a supermarket. You are a bagger, the lowest on the totem pole.
+Your goal is to keep your job, make money, and maintain your rep. Spend your wages to obtain items such as energy drinks to get a stamina boost, or something else for a full stamina reset. Buy a name tag to increase rep. Weather factors influence demand and we connect to an API for this.
 
-### AI Prompts / Responses
-- Find in ```external/AI_prompts.txt```
+## Key features
+Autosave
+Extensible and easily updatable codebase
+Self-documenting code (KISS)
+Sorted into packages
+Loosely coupled wherever possible
 
-### Chosen API
-- I chose ```open-meteo``` because I asked Copilot for "an API" and it chose that and I thought it to be very simple and easy to use so I kept it
+### How to run
+```mvn clean compile exec:java```
 
-### Chosen data fields
-- ```temperature_2m```
-- ```surface_pressure```
-- ```time```
-
-### Example open-meteo API response
-- Find in ```external/api_response.txt```
+### AI reflection
+Find in ```external/AI_prompts.txt```

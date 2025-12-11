@@ -1,0 +1,60 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": {
+        "title": "Mrs",
+        "first": "Cassandre",
+        "last": "Petit"
+      },
+      "location": {
+        "street": {
+          "number": 3568,
+          "name": "Rue du Dauphiné"
+        },
+        "city": "Saint-Pierre",
+        "state": "Jura",
+        "country": "France",
+        "postcode": 97822,
+        "coordinates": {
+          "latitude": "-13.7595",
+          "longitude": "88.1536"
+        },
+        "timezone": {
+          "offset": "+8:00",
+          "description": "Beijing, Perth, Singapore, Hong Kong"
+        }
+      },
+      "login": {
+        "uuid": "2c8d5cd8-fa33-4236-a3b8-ed24f4acd10d",
+        "username": "orangetiger865",
+        "password": "redbone",
+        "salt": "Nlmloxym",
+        "md5": "5bfbe982a25068824ebf7c77d846f50e",
+        "sha1": "18f77313d5405daf50b390e1229b487a3810e315",
+        "sha256": "878b274f2144f867f312e4655337968ccabe02b2f68ba0bc72c96a46c41dc0e3"
+      },
+      "registered": {
+        "date": "2008-03-10T11:56:50.027Z",
+        "age": 15
+      },
+      "phone": "02-68-80-08-46",
+      "cell": "06-36-27-45-61",
+      "id": {
+        "name": "INSEE",
+        "value": "2530022140942 06"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/96.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/96.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/96.jpg"
+      }
+    }
+  ],
+  "info": {
+    "seed": "f9dfe019a23e0274",
+    "results": 1,
+    "page": 1,
+    "version": "1.4"
+  }
+}

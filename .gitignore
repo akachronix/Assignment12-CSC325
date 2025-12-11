@@ -5,3 +5,6 @@ target/
 *.db-journal
 *.log
 *.class
+saves/
+*.save
+*.tmp

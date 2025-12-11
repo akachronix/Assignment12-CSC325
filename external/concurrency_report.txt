@@ -1,0 +1,12 @@
+We only use one thread to autosave the game in the background. JSON is a great format for storing trivial databind
+easily represented by strings or primitive data types so I went with that and was already using Jackson for my weather api.
+Since Jackson is such a major library, I assumed it would be thread-safe. I googled it to be sure and documentation says it is.
+We outright own the thread. Since it's trivial to save, the code is declared via annonymous lambda inline. Instead of starting
+the thread upon initialization of the object, we explicitly begin and end the thread via methods. The data is passed into the
+thread through immutable means through JSON. We have a slight risk for data races due to the fact that the GameData object is
+shared. We only create one Save and one GameData throughout the project (statically defined in a sense) so should be fine as
+main thread is usually blocked by the user input. However, the thread is not synced with the main thread still creating this
+risk. It still doesn't block the main thread which allows us to autosave in the background. According to the docs I read, the
+Jackson components are immutable after instantiated therefore thread safe.
+
+https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/ObjectMapper.html

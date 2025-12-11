@@ -1,3 +1,5 @@
+package weather;
+
 import java.util.Arrays;
 
 // Jackson JSON library (provided by maven)
